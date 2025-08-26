@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aiatest
+  name: aia-release
   labels:
-    app.kubernetes.io/name: aiatest
+    app.kubernetes.io/name: aia-release
     kubernetes.azure.com/generator: devhub
-  namespace: namespace-workflow-1756198567872
+  namespace: namespace-workflow-1756212018548
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: aiatest
+      app.kubernetes.io/name: aia-release
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: aiatest
+        app.kubernetes.io/name: aia-release
     spec:
       containers:
-        - name: aiatest
-          image: aiaregistry2.azurecr.io/image-workflow-1756198567872:latest
+        - name: aia-release
+          image: aiatestacr.azurecr.io/image-workflow-1756212018548:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -31,7 +31,7 @@ spec:
               memory: "1Gi"
           envFrom:
             - configMapRef:
-                name: aiatest-config
+                name: aia-release-config
             - secretRef:
                 name: secret-ref
                 optional: true
@@ -83,11 +83,11 @@ spec:
               topologyKey: kubernetes.io/hostname
               labelSelector:
                 matchLabels:
-                  app.kubernetes.io/name: aiatest
+                  app.kubernetes.io/name: aia-release
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
           whenUnsatisfiable: ScheduleAnyway
           labelSelector:
             matchLabels:
-              app.kubernetes.io/name: aiatest
+              app.kubernetes.io/name: aia-release

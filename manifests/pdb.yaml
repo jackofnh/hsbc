@@ -1,13 +1,13 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: aiatest
+  name: aia-release
   labels:
-    app.kubernetes.io/name: aiatest
-    app.kubernetes.io/part-of: aiatest-project
+    app.kubernetes.io/name: aia-release
+    app.kubernetes.io/part-of: aia-release-project
     kubernetes.azure.com/generator: devhub
 spec:
   maxUnavailable: 1
   selector:
     matchLabels:
-      app: aiatest
+      app: aia-release
