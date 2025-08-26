@@ -1,16 +1,16 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: aiatest
+  name: aia-release
   labels:
-    app.kubernetes.io/name: aiatest
-    app.kubernetes.io/part-of: aiatest-project
+    app.kubernetes.io/name: aia-release
+    app.kubernetes.io/part-of: aia-release-project
     kubernetes.azure.com/generator: devhub
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: aiatest
+    name: aia-release
   minReplicas: 1
   maxReplicas: 5
   metrics:

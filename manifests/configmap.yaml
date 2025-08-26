@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: aiatest-config
-  namespace: namespace-workflow-1756198567872
+  name: aia-release-config
+  namespace: namespace-workflow-1756212018548
   labels:
-    app.kubernetes.io/name: aiatest
+    app.kubernetes.io/name: aia-release
     kubernetes.azure.com/generator: devhub
 data:
