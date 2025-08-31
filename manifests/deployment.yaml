@@ -24,11 +24,11 @@ spec:
             - containerPort: 8080
           resources:
             requests:
-              cpu: "0.5"
-              memory: "2Gi"
-            limits:
-              cpu: "1"
+              cpu: "2"
               memory: "4Gi"
+            limits:
+              cpu: "3"
+              memory: "6Gi"
           envFrom:
             - configMapRef:
                 name: aia-release-config
